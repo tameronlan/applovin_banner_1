@@ -1,0 +1,38 @@
+{
+  "name": "app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve --port 80",
+    "build": "vue-cli-service build",
+    "creator": "./creator"
+  },
+  "dependencies": {
+    "core-js": "^3.4.3",
+    "interactjs": "^1.6.2",
+    "js-cookie": "^2.2.1",
+    "vue": "^2.6.10",
+    "vue-carousel": "^0.18.0",
+    "vue-i18n": "^8.15.0",
+    "vue-long-click": "0.0.4",
+    "vue-slider-component": "^3.0.16",
+    "vue-smooth-picker": "^0.4.2",
+    "vue-toasted": "^1.1.27",
+    "vue-router": "^3.2.0",
+    "messageformat": "^2.2.1",
+    "vuex": "^3.1.2",
+    "html-webpack-inline-source-plugin": "0.0.10",
+    "html-webpack-plugin": "^3.2.0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.1.0",
+    "@vue/cli-service": "^4.1.0",
+    "axios": "^0.18.0",
+    "clean-webpack-plugin": "^0.1.19",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^8.0.0",
+    "vue-svg-loader": "^0.15.0",
+    "vue-template-compiler": "^2.6.10",
+    "webpack-spritesmith": "^1.0.6"
+  }
+}

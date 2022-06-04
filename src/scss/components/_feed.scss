@@ -1,0 +1,380 @@
+.feed{
+  &__title{
+    font-size: 32px;
+    font-weight: 600;
+    padding: 38px 12px 18px;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  &__filter{
+    position: absolute;
+    top: 36px;
+    right: 23px;
+  }
+
+  &__cards{
+    margin: 0 8px 8px;
+    display: flex;
+    position: relative;
+    height: 100%;
+  }
+}
+
+.feed-card{
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  //transition: 1s cubic-bezier(.11,1.46,.63,1.26);
+  opacity: 0;
+  transform: translateY(100%);
+
+  &__avatar_cover{
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    background: black;
+    border-radius: 30px;
+  }
+
+  &__avatar_blured{
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    filter: blur(20px);
+    opacity: .9;
+  }
+
+  &__avatar{
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 30px;
+    overflow: hidden;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    &:before{
+      content: '';
+      position: absolute;
+      border-radius: 30px 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+      height: 90px;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+
+    &:after{
+      content: '';
+      position: absolute;
+      border-radius: 0 30px;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
+      height: 230px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+
+  &__more{
+    position: absolute;
+    left: 24px;
+    top: 20px;
+  }
+
+  &__photos{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    font-size: 15px;
+    top: 21px;
+    right: 18px;
+    align-content: center;
+    justify-content: center;
+    color: $color-white;
+
+    & > svg {
+      margin: -2px 4px 0 0;
+    }
+  }
+
+  &__info{
+    left: 110px;
+    right: 110px;
+    bottom: 0;
+    padding-bottom: 40px;
+    position: absolute;
+    font-size: 28px;
+    font-weight: 600;
+    color: $color-white;
+    text-align: center;
+  }
+
+  &__online{
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #00E532;
+    margin: 10px 0 0 10px;
+    vertical-align: top;
+    display: inline-block;
+  }
+
+  &__action{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 20px;
+    background: $color-white;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+    &_like{
+      right: 20px;
+    }
+
+    &_dislike{
+      left: 20px;
+    }
+
+    & > svg {
+      display: block;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &.touch{
+      transform: scale(.9);
+      opacity: .9;
+    }
+  }
+
+  &_future{
+    opacity: 0.8;
+    transform: scale(.95);
+  }
+
+  &_liked{
+    transform: translateX(120%) rotate(10deg);
+    opacity: 0;
+  }
+
+  &_disliked{
+    transform: translateX(-120%) rotate(-10deg);
+    opacity: 0;
+  }
+
+  &_current{
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+.feed-card-scroller {
+  position: absolute;
+  top: 55px;
+  width: 6px;
+  height: 112px;
+  right: 19px;
+
+  &__line{
+    position: absolute;
+    left: 1px;
+    right: 1px;
+    border-radius: 2px;
+    background: $color-white;
+    opacity: .4;
+    top: 0;
+    bottom: 0;
+  }
+
+  &__pointer{
+    left: 0;
+    right: 0;
+    top: 2px;
+    border-radius: 3px;
+    height: 27px;
+    background: $color-white;
+  }
+}
+
+// Animation
+$tutorialDuration: 4s;
+
+$widthAction: 80px;
+$paddingAction: 20px;
+
+.feed-card_tutor{
+  animation: card-tutorial $tutorialDuration linear infinite;
+
+  .feed-card-tutorial__pointer{
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-top: -200px;
+    width: 80px;
+    height: 100px;
+    animation: card-tutorial-pointer $tutorialDuration linear infinite;
+    pointer-events: none;
+    touch-action: none;
+  }
+}
+
+@keyframes card-tutorial {
+  0%, 16%, 42%, 58%, 84%, 100%{
+    transform: translate(0, 0) rotate(0);
+  }
+
+  29%{
+    transform: translate(-100px, 0) rotate(-10deg);
+  }
+
+  71%{
+    transform: translate(100px, 0) rotate(10deg);
+  }
+
+  //70%{
+  //  transform: translate(100px, 0) rotate(10deg);
+  //}
+}
+
+@keyframes card-tutorial-pointer {
+  0%, 100%{
+    transform: rotate(-45deg);
+    margin-top: -200px;
+    left: 50%;
+    opacity: 0;
+  }
+
+  13% {
+    margin-top: -80px;
+    transform: scale(1) rotate(-45deg);
+    left: $paddingAction + $widthAction/2;
+    opacity: 1;
+  }
+
+  14% {
+    margin-top: -80px;
+    transform: scale(0.8) rotate(-45deg) ;
+    left: $paddingAction + $widthAction/2
+  }
+
+  16%, 42% {
+    margin-top: -80px;
+    transform: scale(1) rotate(-45deg);
+    left: $paddingAction + $widthAction/2
+  }
+
+  55%{
+    margin-top: -80px;
+    transform: scale(1) rotate(-45deg);
+    left: calc(100% - 60px)
+  }
+
+  56% {
+    margin-top: -80px;
+    transform: scale(0.8) rotate(-45deg) ;
+    left: calc(100% - 60px);
+  }
+
+  58%, 84%{
+    margin-top: -80px;
+    transform: scale(1) rotate(-45deg);
+    left: calc(100% - 60px);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 420px)  {
+  .feed-card__info{
+    font-size: 24px;
+    padding-bottom: 30px;
+    left: 90px;
+    right: 90px;
+  }
+
+  .feed-card__action{
+    bottom: 12px;
+    width: 70px;
+    height: 70px;
+  }
+
+  .feed-card__action_dislike{
+    left: 12px;
+  }
+
+  .feed-card__action_like{
+    right: 12px;
+  }
+
+  .feed__title{
+    font-size: 24px;
+  }
+}
+
+
+@media (max-width: 370px)  {
+  .feed-card__info{
+    font-size: 20px;
+    padding-bottom: 28px;
+    left: 80px;
+    right: 80px;
+  }
+
+  .feed-card__online{
+    margin: 5px 0 0 5px;
+  }
+
+  .feed-card__action{
+    bottom: 8px;
+    width: 64px;
+    height: 64px;
+  }
+
+  .feed-card__action_dislike{
+    left: 8px;
+  }
+
+  .feed-card__action_like{
+    right: 8px;
+  }
+}
+
+
+@media (max-width: 370px)  {
+  .feed-card__info{
+    font-size: 16px;
+  }
+
+  .feed-card__online{
+    margin: 2px 0 0 2px;
+  }
+}
+
+@media (max-width: 370px)  {
+  .feed__title{
+    font-size: 18px;
+  }
+}
+
+@media (max-height: 410px)  {
+  .feed__title{
+    padding-top: 16px;
+    padding-bottom: 12px;
+  }
+}

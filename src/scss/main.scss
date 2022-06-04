@@ -1,0 +1,52 @@
+@import "vars";
+@import "mixins";
+@import "ico";
+@import "ripple-effect";
+
+.app * {
+    box-sizing: border-box;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 100%;
+    overflow: hidden;
+}
+
+.link{
+    text-decoration: underline;
+    color: $color-blue-2;
+}
+
+textarea {
+    -webkit-touch-callout: auto !important;
+    -webkit-user-select: auto !important;
+    user-select: auto !important;
+}
+
+html, body {
+    height: 100%;
+    min-height: 100%;
+    background: #F3F8FF;
+}
+
+body {
+    font-family: $font-family;
+    font-size: $font-xm;
+    font-weight: $font-wn;
+    margin: 0;
+    color: $color-gray6;
+}
+
+@import "file-directive";
+@import "touch-directive";
+@import "text";
+@import "input";
+
+@import "components/feed";
+@import "components/notification";

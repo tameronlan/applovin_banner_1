@@ -1,0 +1,76 @@
+%ripple {
+    overflow:hidden;
+    position: relative;
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        margin: -25px 0 0 -25px;
+        backface-visibility: hidden;
+        pointer-events: none;
+        opacity: 0;
+    }
+
+    &.touch {
+        &:after {
+            background: #ff2f51;
+            animation: ripple-animation 2s;
+        }
+    }
+}
+
+
+%ripple_white.touch {
+    &:after {
+        background: #fff;
+        animation: ripple-animation-white 2s;
+    }
+}
+
+%ripple_lightblue.touch {
+    &:after {
+        background: #c7d9f5;
+        animation: ripple-animation-white 2s;
+    }
+}
+
+.ripple {
+    @extend %ripple;
+
+    &_white {
+        @extend %ripple_white;
+    }
+
+    &_lightblue {
+        @extend %ripple_lightblue;
+    }
+}
+
+
+@keyframes ripple-animation {
+    from {
+        transform: scale(1);
+        opacity: 0.2;
+    }
+    to {
+        transform: scale(100);
+        opacity: 0;
+    }
+}
+
+
+@keyframes ripple-animation-white {
+    from {
+        transform: scale(1);
+        opacity: 0.4;
+    }
+    to {
+        transform: scale(100);
+        opacity: 0;
+    }
+}

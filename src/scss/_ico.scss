@@ -1,0 +1,24 @@
+.ico-native{
+    &_plus{
+        width: 20px;
+        height: 20px;
+        position: relative;
+
+        &:before,
+        &:after{
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 20%;
+            height: 100%;
+            border-radius: 10px;
+            background: #fff;
+            margin: -50% 0 0 -10%;
+        }
+
+        &:after{
+            transform: rotate(90deg);
+        }
+    }
+}

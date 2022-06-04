@@ -1,0 +1,85 @@
+h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+.online-status {
+    display: inline-block;
+    background: #1CE277;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    vertical-align: middle;
+    margin-left: 4px;
+}
+
+/* Fonts */
+$font-sizes: (
+    ('xs',  $font-xs),
+    ('s',   $font-s),
+    ('m',   $font-m),
+    ('l',   $font-l),
+    ('xl',  $font-xl),
+    ('xxl', $font-xxl)
+);
+
+@each $font-size in $font-sizes {
+    $alias: nth($font-size, 1);
+    $value: nth($font-size, 2);
+
+    .font_#{$alias} {
+        font-size: $value;
+    }
+
+    %font_#{$alias} {
+        font-size: $value;
+    }
+}
+
+.font_blue {
+    color: $color-text-blue;
+}
+
+.font_white {
+    color: #fff;
+}
+
+.font_medium {
+    font-weight: $font-wm;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-05 {
+    opacity: .5;
+}
+
+.text-strike {
+    text-decoration: line-through;
+}
+
+.ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+

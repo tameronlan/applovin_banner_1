@@ -1,0 +1,118 @@
+.app-notify{
+  display: flex;
+  position: absolute;
+  background: #FFFFFF;
+  box-shadow: 0px 14px 14px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  top: 78px;
+  left: 4px;
+  right: 4px;
+  animation: drop-down 0.25s cubic-bezier(.11,1.46,.63,1.26);
+  padding: 8px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  z-index: 2;
+  
+  @keyframes drop-down {
+    0%{
+      transform: translateY(-120px) scale(0.9);
+      opacity: 0;
+    }
+
+    100%{
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+  }
+
+  &__icon{
+    margin-left: 8px;
+    margin-right: 12px;
+  }
+
+  &__text{
+    font-size: 18px;
+    color: black;
+    font-weight: 600;
+    width: 100%
+  }
+
+  &__btn{
+    min-width: 80px;
+    background: linear-gradient(90.98deg, #FF7354 -2.58%, #FF3052 50.58%, #FF1B5F 106.2%);
+    border-radius: 16px;
+    font-size: 20px;
+    font-weight: 600;
+    color: $color-white;
+    padding: 10px 12px;
+    height: 64px;
+    display: flex;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    margin-left: 8px;
+  }
+
+  &__pointer{
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    animation: notification-cusor 1.5s linear infinite;
+    width: 80px;
+    height: 100px;
+  }
+
+  @keyframes notification-cusor {
+    0%, 100%{
+      transform: translateY(60px) scale(0.9) rotate(-40deg);
+      opacity: 0;
+    }
+
+    45%{
+      transform: translateY(-20px) scale(1) rotate(-40deg);
+      opacity: 1;
+    }
+
+    50%{
+      transform: translateY(-20px) scale(0.9) rotate(-40deg);
+      opacity: 1;
+    }
+
+    55%{
+      transform: translateY(-20px) scale(1) rotate(-40deg);
+      opacity: 1;
+    }
+  }
+}
+
+@media (max-width: 420px)  {
+  .app-notify__text{
+    font-size: 15px;
+  }
+
+  .app-notify__icon{
+    margin-left: 4px;
+    margin-right: 8px;
+  }
+}
+
+@media (max-width: 420px)  {
+  .app-notify__text{
+    font-size: 14px;
+  }
+
+  .app-notify__btn{
+    min-width: 70px;
+    margin-left: 4px;
+  }
+}
+
+@media (max-height: 420px)  {
+  .app-notify{
+    top: 12px;
+  }
+}
+
